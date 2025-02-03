@@ -3,6 +3,7 @@
 .vscode
 .DS_Store
 help.sh
+build
 
 # Prerequisites
 *.d
