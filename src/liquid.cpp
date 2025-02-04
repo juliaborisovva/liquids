@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdexcept>
 
 #include "libliquids.hpp"
@@ -56,5 +55,14 @@ ErrorCode Liquid::SetVolume(float v)
 }
 
 float Liquid::GetVolume() { return this->v_; }
+
+bool Liquid::operator== (const Liquid& liq) const
+{
+    return this->color_ == liq.color_ && this->p_ == liq.p_ && this->v_ == liq.v_;
+}
+bool Liquid::operator!= (const Liquid& liq) const
+{
+    return !(*this == liq);
+}
 
 }  // namespace liquids

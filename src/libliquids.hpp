@@ -8,7 +8,7 @@ enum class ErrorCode {
 //    kInvalidValue = -1,
     kInvalidP = -2,
     kInvalidV = -3,
-//    kTooMuchV = -4,
+    kTooMuchV = -4,
 //    kVLEZero = -5,
 //    kNotFoundLiquid = -6
 };
@@ -22,7 +22,7 @@ class Liquid
     float v_;
 
    public:
-    Liquid(uint8_t color = 255, float p = 100.0, float v = 0.1);
+    Liquid(uint8_t color = 255, float p = 550.0, float v = 0.1);
     ~Liquid();
 
     void SetColor(uint8_t color);
@@ -33,6 +33,10 @@ class Liquid
 
     ErrorCode SetVolume(float v);
     float GetVolume();
+
+    // операторы сравнения
+    bool operator== (const Liquid& liq) const;
+    bool operator!= (const Liquid& liq) const;
 };
 
 }  // namespace liquids
