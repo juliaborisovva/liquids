@@ -5,12 +5,12 @@ namespace liquids {
 
 enum class ErrorCode {
     kSuccess = 0,
-    kInvalidColor = -1,
+//    kInvalidValue = -1,
     kInvalidP = -2,
     kInvalidV = -3,
-    kTooMuchV = -4,
-    kVLEZero = -5,
-    kNotFoundLiquid = -6
+//    kTooMuchV = -4,
+//    kVLEZero = -5,
+//    kNotFoundLiquid = -6
 };
 
 class Liquid
