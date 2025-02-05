@@ -88,4 +88,5 @@ test: mk_dirs $(APP_TEST_PATH)
 $(APP_TEST_PATH): $(GTEST_LIB) $(TEST_OBJS)
 	$(CXX) $(CXXFLAGS) $(CXXFLAGS_GTEST) $(TEST_OBJS) -o $@ $(GTEST_LIB) $(GTEST_MAIN) -pthread
 
-
+leaks: $(APP_PATH)
+	$(CHECK_LEAKS) $(APP_PATH)
