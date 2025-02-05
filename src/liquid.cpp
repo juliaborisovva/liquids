@@ -9,28 +9,20 @@
 
 namespace liquids {
 
-Liquid::Liquid(uint8_t color, float p, float v) : color_(color)
+Liquid::Liquid(uint8_t color, float p, float v)
 {
-    if (p <= 0) {
-        throw std::invalid_argument("Ошибка: значение плотности P должно быть > 0.");
-    }
-    if (v <= 0) {
-        throw std::invalid_argument("Ошибка: значение объема V должно быть > 0.");
-    }
-
+    if (p <= 0) throw std::invalid_argument("Ошибка: значение плотности P должно быть > 0.");
+    if (v <= 0) throw std::invalid_argument("Ошибка: значение объема V должно быть > 0.");
     this->color_ = color;
     this->p_ = p;
     this->v_ = v;
 }
 
-Liquid::~Liquid()
-{
-    // очищение
-}
+Liquid::~Liquid() {}
 
 void Liquid::SetColor(uint8_t color) { color_ = color; }
 
-uint8_t Liquid::GetColor() { return this->color_; }
+uint8_t Liquid::GetColor() const { return this->color_; }
 
 ErrorCode Liquid::SetDensity(float p)
 {
@@ -42,7 +34,7 @@ ErrorCode Liquid::SetDensity(float p)
     return err;
 }
 
-float Liquid::GetDensity() { return this->p_; }
+float Liquid::GetDensity() const { return this->p_; }
 
 ErrorCode Liquid::SetVolume(float v)
 {
@@ -54,15 +46,13 @@ ErrorCode Liquid::SetVolume(float v)
     return err;
 }
 
-float Liquid::GetVolume() { return this->v_; }
+float Liquid::GetVolume() const { return this->v_; }
 
-bool Liquid::operator== (const Liquid& liq) const
+bool Liquid::operator==(const Liquid& liq) const
 {
     return this->color_ == liq.color_ && this->p_ == liq.p_ && this->v_ == liq.v_;
 }
-bool Liquid::operator!= (const Liquid& liq) const
-{
-    return !(*this == liq);
-}
+
+bool Liquid::operator!=(const Liquid& liq) const { return !(*this == liq); }
 
 }  // namespace liquids

@@ -1,16 +1,16 @@
 #ifndef LIBLIQUIDS_HPP
 #define LIBLIQUIDS_HPP
 
+#include <cstdint>
+
 namespace liquids {
 
 enum class ErrorCode {
     kSuccess = 0,
-//    kInvalidValue = -1,
     kInvalidP = -2,
     kInvalidV = -3,
     kTooMuchV = -4,
-//    kVLEZero = -5,
-//    kNotFoundLiquid = -6
+    kNotFoundLiquid = -5
 };
 
 class Liquid
@@ -26,17 +26,17 @@ class Liquid
     ~Liquid();
 
     void SetColor(uint8_t color);
-    uint8_t GetColor();
+    uint8_t GetColor() const;
 
     ErrorCode SetDensity(float p);
-    float GetDensity();
+    float GetDensity() const;
 
     ErrorCode SetVolume(float v);
-    float GetVolume();
+    float GetVolume() const;
 
     // операторы сравнения
-    bool operator== (const Liquid& liq) const;
-    bool operator!= (const Liquid& liq) const;
+    bool operator==(const Liquid& liq) const;
+    bool operator!=(const Liquid& liq) const;
 };
 
 }  // namespace liquids
