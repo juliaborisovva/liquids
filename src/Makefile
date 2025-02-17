@@ -11,8 +11,8 @@ CXXFLAGS =-Wall -Wextra -Werror -Wpedantic -std=c++17 -I src -I googletest/googl
 APP_PATH = $(BUILD_DIR)/$(BIN_DIR)/$(APP_NAME)
 APP_TEST_PATH = $(BUILD_DIR)/$(BIN_DIR)/$(APP_NAME_TEST)
 
-APP_SRCS = liquid.cpp main.cpp
-TEST_SRCS = liquid.cpp test.cpp
+APP_SRCS = liquid.cpp bottle.cpp main.cpp
+TEST_SRCS = liquid.cpp bottle.cpp test.cpp
 
 APP_OBJS = $(APP_SRCS:%.$(SRC_EXT)=$(BUILD_DIR)/%.o)
 TEST_OBJS = $(TEST_SRCS:%.$(SRC_EXT)=$(BUILD_DIR)/%.o)

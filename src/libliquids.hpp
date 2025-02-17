@@ -2,6 +2,7 @@
 #define LIBLIQUIDS_HPP
 
 #include <cstdint>
+#include <vector>
 
 namespace liquids {
 
@@ -37,6 +38,36 @@ class Liquid
     // операторы сравнения
     bool operator==(const Liquid& liq) const;
     bool operator!=(const Liquid& liq) const;
+};
+
+class Bottle
+{
+   private:
+    static constexpr float max_bottle_v_ = 2.0f;
+    float bottle_v_;
+    float liquids_m_;
+    std::vector<Liquid> liquid_;
+
+   public:
+    Bottle();
+    ~Bottle();
+
+    ErrorCode AddLiquid(uint8_t color = 255, float p = 100.0, float v = 0.1);
+    ErrorCode AddLiquid(const Liquid& liq);
+    ErrorCode AddLiquid(const Liquid& liq, float v);
+
+    /*ErrorCode RemoveLiquid(uint8_t color = 255, float p = 100.0, float v = 0.1);
+    ErrorCode RemoveLiquid(const Liquid& liq);
+    ErrorCode RemoveLiquid(const Liquid& liq, float v);*/
+
+    float GetMaxBottleV() const;
+    float GetBottleV() const;
+    float GetMass() const;
+    /*void GetLiquidsInfo() const;*/
+
+    // операторы сравнения
+    bool operator==(const Bottle& b) const;
+    bool operator!=(const Bottle& b) const;
 };
 
 }  // namespace liquids
